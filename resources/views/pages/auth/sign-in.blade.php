@@ -21,23 +21,23 @@
                     <div
                         class="card card-body bg-body bg-opacity-25 bg-blur border border-white border-opacity-10 position-relative rounded-4 shadow-primary text-center p-4 p-sm-5">
                         <!-- Title -->
-                        <h1 class="mb-2 h3 fw-bold">Sign in</h1>
-                        <p class="mb-0">Don't have an account?<a
-                                href="{{ route('third', ['pages', 'auth', 'sign-up']) }}" class="text-primary-grad">
-                                Click
-                                here to sign up</a></p>
+                        <h1 class="mb-2 h3 fw-bold">ავტორიზაცია</h1>
+                        <p class="mb-0">არ ხარ დარეგისტრირებული ?<a
+                                href="{{ route('login.index') }}" class="text-primary-grad">
+                                რეგისტრაცია</a></p>
                         <!-- Form START -->
-                        <form class="mt-2 mt-sm-4">
+                        <form class="mt-2 mt-sm-4" method="POST" action="{{route('login.action')}}">
+                            @csrf
                             <!-- Email -->
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Enter email">
+                                <input type="email" class="form-control" name="email" placeholder="email">
                             </div>
                             <!-- New password -->
                             <div class="mb-3 position-relative">
                                 <!-- Password -->
                                 <div class="mb-3 position-relative">
-                                    <input type="password" class="form-control fakepassword pe-6" id="psw-input"
-                                        placeholder="Enter your password">
+                                    <input type="password" name="password" class="form-control fakepassword pe-6" id="psw-input"
+                                        placeholder="password">
                                     <span class="position-absolute top-50 end-0 translate-middle-y p-0 me-2">
                                         <i class="fakepasswordicon bi bi-eye-slash-fill cursor-pointer p-2"></i>
                                     </span>
@@ -47,13 +47,12 @@
                             <div class="mb-3 d-sm-flex justify-content-between">
                                 <div>
                                     <input type="checkbox" class="form-check-input border" id="rememberCheck">
-                                    <label class="form-check-label" for="rememberCheck">Remember me?</label>
+                                    <label class="form-check-label" mane="remember" for="rememberCheck">Remember me?</label>
                                 </div>
-                                <a href="{{ route('third', ['pages', 'auth', 'forgot-password']) }}">Forgot
-                                    password?</a>
+                                <a href="{{ route('third', ['pages', 'auth', 'forgot-password']) }}">დაგავიწყდა პაროლი ?</a>
                             </div>
                             <!-- Button -->
-                            <div class="d-grid"><button type="submit" class="btn btn-primary">Login</button></div>
+                            <div class="d-grid"><button type="submit" class="btn btn-primary">ავტორიზაცია</button></div>
 
                             <!-- Divider -->
                             <div class="d-flex align-items-center my-3">
@@ -71,9 +70,9 @@
                             </div>
 
                             <!-- Copyright -->
-                            <div class="text-body small mt-3"> Copyrights ©2024 Folio. Build by <a
-                                    href="#" target="_blank"
-                                    class="text-body text-primary-hover hover-underline-animation">Stackbros</a>. </div>
+{{--                            <div class="text-body small mt-3"> Copyrights ©2024 Folio. Build by <a--}}
+{{--                                    href="#" target="_blank"--}}
+{{--                                    class="text-body text-primary-hover hover-underline-animation">Stackbros</a>. </div>--}}
                         </form>
                         <!-- Form END -->
                     </div>

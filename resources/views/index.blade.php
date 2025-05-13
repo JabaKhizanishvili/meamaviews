@@ -1,4 +1,4 @@
-@extends('layouts.landing',  ['buttons' => false, 'headerClass' => 'header-absolute'])
+@extends('layouts.landing',  ['buttons' => true, 'headerClass' => 'header-absolute'])
 
 @section('css')
 @vite(['node_modules/swiper/swiper-bundle.min.css'])
@@ -48,10 +48,9 @@
         </ul>
     </li>
     <!-- Dark mode option END -->
-
     <!-- Sign up button -->
     <li class="nav-item ms-2 d-none d-sm-block">
-        <a href="sign-up.html" class="btn btn-sm btn-primary-grad mb-0">Sign up</a>
+        <a href="{{route('register.index')}}" class="btn btn-sm btn-primary-grad mb-0">რეგისტრაცია</a>
     </li>
     <!-- Responsive navbar toggler -->
     <li class="nav-item">

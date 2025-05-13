@@ -1,4 +1,4 @@
-<title>Folio - Multipurpose Bootstrap Theme</title>
+<title>Meama Views</title>
 <!-- Meta Tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -6,7 +6,7 @@
 <meta name="description" content="multipurpose bootstrap theme">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="shortcut icon" href="/images/meama.svg">
 
 <!-- Google Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

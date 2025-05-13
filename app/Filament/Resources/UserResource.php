@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Filters\Filter;
+use Filament\Forms\Components\TextInput;
 
 class UserResource extends Resource
 {
@@ -32,12 +34,33 @@ class UserResource extends Resource
         return $table
             ->columns([
                 //
+                Tables\Columns\TextColumn::make('name')->searchable(),
+                Tables\Columns\TextColumn::make('email')->searchable(),
+                Tables\Columns\TextColumn::make('password'),
             ])
             ->filters([
                 //
+//                Tables\Filters\TextFilter::make('name'),
+//                Tables\Filters\SelectFilter::make('email'),
+                Filter::make('name')
+                    ->form([
+                        TextInput::make('name')->label('Name contains'),
+                    ])
+                    ->query(function ($query, $data) {
+                        return $query->when($data['name'], fn ($q) => $q->where('name', 'like', '%' . $data['name'] . '%'));
+                    }),
+
+                Filter::make('email')
+                    ->form([
+                        TextInput::make('email')->label('Email contains'),
+                    ])
+                    ->query(function ($query, $data) {
+                        return $query->when($data['email'], fn ($q) => $q->where('email', 'like', '%' . $data['email'] . '%'));
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

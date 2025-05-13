@@ -143,7 +143,8 @@
                                         href="#">Authentication</a>
                                     <ul class="dropdown-menu" data-bs-popper="none">
                                         <li> <a class="dropdown-item" href="{{ route('third', [ 'pages' , 'auth','sign-in']) }}">Sign in</a> </li>
-                                        <li> <a class="dropdown-item" href="{{ route('third', [ 'pages' , 'auth','sign-up']) }}">Sign up</a> </li>
+{{--                                        <li> <a class="dropdown-item" href="{{ route('third', [ 'pages' , 'auth','sign-up']) }}">Sign up</a> </li>--}}
+                                        <li> <a class="dropdown-item" href="{{ route('register.index') }}">Sign up</a> </li>
                                         <li> <a class="dropdown-item" href="{{ route('third', [ 'pages' , 'auth','forgot-password']) }}">Forgot Password</a>
                                         </li>
                                     </ul>
@@ -209,9 +210,27 @@
                     <!-- Dark mode option END -->
 
                     <!-- Sign up button -->
-                    <li class="nav-item ms-2 d-none d-sm-block">
-                        <a href="{{ route('third', [ 'pages' , 'auth','sign-up']) }}" class="btn btn-sm btn-primary-grad mb-0">Sign up</a>
-                    </li>
+                    @auth()
+                        <div class="dropdown">
+                            <a class="btn btn-sm btn-primary-grad dropdown-toggle mb-0" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="{{ route('dashboard') }}">დეშბორდი</a></li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <button class="dropdown-item" type="submit">გასვლა</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    @else
+                        <li class="nav-item ms-2 d-none d-sm-block">
+                            <a href="{{ route('register.index') }}" class="btn btn-sm btn-primary-grad mb-0">რეგისტრაცია</a>
+                        </li>
+                    @endauth
+
                     <!-- Responsive navbar toggler -->
                     <li class="nav-item">
                         <button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse"

@@ -7,7 +7,6 @@ data-bs-theme="dark"
 @section('content')
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
-
     <!-- =======================
     Hero START -->
     <section class="bg-dark position-relative overflow-hidden pt-xl-8" data-bs-theme="dark">

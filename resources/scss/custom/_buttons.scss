@@ -1,11 +1,11 @@
-// 
+//
 // buttons.scss
 // Extended from Bootstrap
-// 
+//
 
-// 
+//
 // Additional styles for theme
-// 
+//
 
 .btn {
   letter-spacing: 0.5px;
@@ -44,7 +44,7 @@
   background-size: 200% auto;
   border: 0;
   line-height: 1.62;
-  
+
   &:active, &:focus, &:hover, &:focus-visible {
     color: $white !important;
     background-position: right center;
@@ -171,7 +171,7 @@
   padding: 0;
   text-align: center;
   i{
-    margin:0; 
+    margin:0;
   }
   // Quick fix for play button centered
   .fa-play{
