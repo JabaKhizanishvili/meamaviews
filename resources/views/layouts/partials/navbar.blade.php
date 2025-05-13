@@ -18,6 +18,7 @@
                 <!-- Main navbar START -->
                 <div class="navbar-collapse collapse" id="navbarCollapse">
                     <ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto" id="navbar">
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('root') }}">მთავარი</a> </li>
 
                         <!-- Nav item -->
                         <li class="nav-item dropdown">
@@ -154,7 +155,8 @@
 
 
                         <!-- Nav item -->
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('second', [ 'pages' , 'contact-us-v1']) }}">Contact us</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('second', [ 'about' , 'v1']) }}">ჩვენს შესახებ</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('second', [ 'pages' , 'contact-us-v1']) }}">კონტაქტი</a> </li>
                     </ul>
                 </div>
                 <!-- Main navbar END -->
@@ -213,7 +215,7 @@
                     @auth()
                         <div class="dropdown">
                             <a class="btn btn-sm btn-primary-grad dropdown-toggle mb-0" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
+                                <i class="bi bi-person-fill"></i>  {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 <li><a class="dropdown-item" href="{{ route('dashboard') }}">დეშბორდი</a></li>
