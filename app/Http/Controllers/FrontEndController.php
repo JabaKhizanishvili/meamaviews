@@ -12,4 +12,11 @@ class FrontEndController extends Controller
 //        return view('pages.dashboard');
         return view('profile.show');
     }
+
+    public function About(){
+        return view('about.v1');
+    }
+    public function Contact(){
+        return view('pages.contact-us-v1');
+    }
 }

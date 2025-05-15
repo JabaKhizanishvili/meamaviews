@@ -155,8 +155,8 @@
 
 
                         <!-- Nav item -->
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('second', [ 'about' , 'v1']) }}">ჩვენს შესახებ</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ route('second', [ 'pages' , 'contact-us-v1']) }}">კონტაქტი</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('about') }}">ჩვენს შესახებ</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('contact') }}">კონტაქტი</a> </li>
                     </ul>
                 </div>
                 <!-- Main navbar END -->

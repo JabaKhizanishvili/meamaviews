@@ -23,7 +23,7 @@
                         <!-- Title -->
                         <h1 class="mb-2 h3 fw-bold">ავტორიზაცია</h1>
                         <p class="mb-0">არ ხარ დარეგისტრირებული ?<a
-                                href="{{ route('login.index') }}" class="text-primary-grad">
+                                href="{{ route('register.index') }}" class="text-primary-grad">
                                 რეგისტრაცია</a></p>
                         <!-- Form START -->
                         <form class="mt-2 mt-sm-4" method="POST" action="{{route('login.action')}}">

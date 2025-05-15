@@ -62,7 +62,6 @@ class RegisterController extends Controller
 //            return redirect()->intended('/dashboard'); // ან სადაც გინდა
             return redirect()->route('root'); // ან სადაც გინდა
         }
-
         return back()->withErrors([
             'email' => 'მომხმარებელი ან პაროლი არასწორია.',
         ])->onlyInput('email');
@@ -76,6 +75,6 @@ class RegisterController extends Controller
 //        $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect()->route('root');
     }
 }

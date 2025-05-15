@@ -23,7 +23,7 @@
                         <!-- Title -->
                         <h1 class="mb-2 h3 fw-bold">რეგისტრაცია</h1>
                         <p class="mb-0">არსებული ანგარიშით შესვლა<a
-                                href="{{ route('login.index') }}" class="text-primary-grad">
+                                href="{{ route('login') }}" class="text-primary-grad">
                                 ავტორიზაცია</a></p>
                         <!-- Form START -->
                         <form method="POST" class="mt-2 mt-sm-4" action="{{ route('register.store') }}">
