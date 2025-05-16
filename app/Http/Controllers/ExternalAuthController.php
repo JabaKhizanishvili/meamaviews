@@ -71,10 +71,16 @@ class ExternalAuthController extends Controller
                 );
 
 
-                if (Auth::attempt($externalUser)) {
+//                if (Auth::attempt($externalUser)) {
+//                    $request->session()->regenerate();
+//
+//                    return redirect()->intended(route('dashboard')); // ან სადაც გინდა
+//                }
+                if ($externalUser) {
+                    Auth::login($externalUser);
                     $request->session()->regenerate();
 
-                    return redirect()->intended(route('dashboard')); // ან სადაც გინდა
+                    return redirect()->intended(route('dashboard'));
                 }
             }
 
