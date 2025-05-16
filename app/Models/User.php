@@ -74,4 +74,9 @@ class User extends Authenticatable
     public function videos(){
         return $this->hasMany(UserVideo::class);
     }
+
+
+    public function iban(){
+        return $this->hasOne(Iban::class);
+    }
 }

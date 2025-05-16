@@ -47,9 +47,9 @@
                             <div class="mb-3 d-sm-flex justify-content-between">
                                 <div>
                                     <input type="checkbox" class="form-check-input border" id="rememberCheck">
-                                    <label class="form-check-label" mane="remember" for="rememberCheck">Remember me?</label>
+                                    <label class="form-check-label" mane="remember" for="rememberCheck">დამახსოვრება</label>
                                 </div>
-                                <a href="{{ route('third', ['pages', 'auth', 'forgot-password']) }}">დაგავიწყდა პაროლი ?</a>
+                                <a href="{{ route('password.request') }}">დაგავიწყდა პაროლი ?</a>
                             </div>
                             <!-- Button -->
                             <div class="d-grid"><button type="submit" class="btn btn-primary">ავტორიზაცია</button></div>

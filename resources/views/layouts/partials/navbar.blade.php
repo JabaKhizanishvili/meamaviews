@@ -214,8 +214,9 @@
                     <!-- Sign up button -->
                     @auth()
                         <div class="dropdown">
-                            <a class="btn btn-sm btn-primary-grad dropdown-toggle mb-0" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-fill"></i>  {{ Auth::user()->name }}
+                            <a class="btn btn-sm btn-primary-grad  mb-0 btn-circle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i style="font-size: 20px;" class="bi bi-person-fill"></i>
+{{--                                {{ Auth::user()->name }}--}}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 <li><a class="dropdown-item" href="{{ route('dashboard') }}">დეშბორდი</a></li>

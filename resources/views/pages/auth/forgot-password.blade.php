@@ -21,29 +21,29 @@
                     <div
                         class="card card-body bg-body bg-opacity-25 bg-blur border border-white border-opacity-10 position-relative rounded-4 shadow-primary text-center p-4 p-sm-5">
                         <!-- Title -->
-                        <h1 class="mb-2 h3 fw-bold">Forgot password</h1>
-                        <p class="mb-0">Enter the email address associated with an account.</p>
+                        <h1 class="mb-2 h3 fw-bold">პაროლის აღდგენა</h1>
+{{--                        <p class="mb-0">Enter the email address associated with an account.</p>--}}
                         <!-- Form START -->
-                        <form class="mt-2 mt-sm-4">
+                            <form class="mt-2 mt-sm-4" method="POST" action="{{ route('password.email') }}">
+                                @csrf
                             <!-- Email -->
                             <div class="mb-3">
-                                <input type="email" class="form-control" placeholder="Enter email">
+                                <input type="email" class="form-control" name="email" placeholder="შეიყვანეთ მეილი">
                             </div>
 
                             <!-- Button -->
-                            <div class="d-grid mb-2"><button type="submit" class="btn btn-primary">Reset
-                                    password</button></div>
-
+                            <div class="d-grid mb-2"><button type="submit" class="btn btn-primary">პაროლის აღდგენა</button></div>
                             <div class="mb-4 text-center">
-                                <a href="{{ route('third', ['pages', 'auth', 'sign-in']) }}"
-                                    class="text-primary-hover"><i class="bi bi-arrow-left"></i> Back
-                                    to login</a>
+                                <a href="{{ route('login') }}"
+                                    class="text-primary-hover"><i class="bi bi-arrow-left"></i> უკან დაბრუნება </a>
                             </div>
+                                @session('status')
+                                <div class="mb-4 font-medium text-sm text-green-600 text-success">
+                                    {{ $value }}
+                                </div>
+                                @endsession
 
                             <!-- Copyright -->
-                            <div class="text-body small mt-3"> Copyrights ©2024 Folio. Build by <a
-                                    href="#" target="_blank"
-                                    class="text-body text-primary-hover hover-underline-animation">Stackbros</a>. </div>
                         </form>
                         <!-- Form END -->
                     </div>

@@ -32,6 +32,15 @@ Route::middleware('guest')->group(function () {
 //    Route::get('/login', [RegisterController::class, 'loginIndex'])->name('login');
     Route::get('/login', [RegisterController::class, 'loginIndex'])->name('login');
     Route::post('/login', [RegisterController::class, 'LoginAction'])->name('login.action');
+
+//    forget password
+    Route::get('/forgot-password', [RegisterController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('/forgot-password', [RegisterController::class, 'sendResetLinkEmail'])->name('password.email');
+
+    Route::get('/reset-password/{token}', [RegisterController::class, 'showResetForm'])->name('password.reset');
+    Route::post('/reset-password', [RegisterController::class, 'reset'])->name('password.update');
+
+
 });
 
 Route::post('/logout', [RegisterController::class, 'logout'])->name('logout');
