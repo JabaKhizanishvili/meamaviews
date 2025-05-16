@@ -1,7 +1,9 @@
 @extends('layouts.landing', ['headerClass' => 'header-absolute', 'buttons' => true])
 
 @section('css')
-    @vite(['node_modules/swiper/swiper-bundle.min.css', 'node_modules/glightbox/dist/css/glightbox.css'])
+    @vite(['resources/js/app.js'])
+{{--    @vite(['node_modules/swiper/swiper-bundle.min.css', 'node_modules/glightbox/dist/css/glightbox.css'])--}}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .card {
