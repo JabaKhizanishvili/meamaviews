@@ -4,6 +4,7 @@ use App\Http\Controllers\RoutingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\ExternalAuthController;
 
 
 // admin routes
@@ -27,6 +28,12 @@ Route::get('/contact', [FrontEndController::class,'Contact'])->name('contact');
 
 
 Route::middleware('guest')->group(function () {
+
+    // Socialite
+    Route::get('auth/google', [ExternalAuthController::class, 'redirectToProvider'])->name('external.social.redirect');
+//        Route::get('auth/{provider}/callback', [ExternalAuthController::class, 'handleProviderCallback'])->name('external.social.callback');
+    Route::get('auth/google/callback', [ExternalAuthController::class, 'callback'])->name('external.social.callback');
+
     Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 //    Route::get('/login', [RegisterController::class, 'loginIndex'])->name('login');

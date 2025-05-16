@@ -63,9 +63,7 @@
 
                             <!-- Facebook and google button -->
                             <div class="d-flex justify-content-center gap-3">
-                                <a class="btn btn-icon bg-facebook" href="#"><i
-                                        class="bi bi-facebook lh-base"></i></a>
-                                <a class="btn btn-icon border bg-white" href="#"><i
+                                <a href="{{ route('external.social.redirect', 'google') }}" class="btn btn-icon border bg-white" href="#"><i
                                         class="bi bi-google lh-base text-google-icon"></i></a>
                             </div>
 
