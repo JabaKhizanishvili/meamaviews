@@ -79,6 +79,7 @@
                                     <div class="alert alert-info" role="alert">
                                         <i class="fas fa-info-circle me-2"></i>აქ შეგიძლიათ შეამოწმოთ თქვენი ანგარიშის ვერიფიკაციის სტატუსი.
                                     </div>
+                                    @livewire('verification-form')
                                 </div>
                             </div>
                         </div>
