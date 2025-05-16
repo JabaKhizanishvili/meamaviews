@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Forms\Components\Toggle;
 
 class UserResource extends Resource
 {
@@ -26,6 +28,16 @@ class UserResource extends Resource
         return $form
             ->schema([
                 //
+                TextInput::make('name')->required(),
+                TextInput::make('email')->email()->required(),
+
+                Toggle::make('verified')
+                    ->label('Verified')
+                    ->inline(),
+
+                Toggle::make('active')
+                    ->label('Active')
+                    ->inline(),
             ]);
     }
 
@@ -36,7 +48,13 @@ class UserResource extends Resource
                 //
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\TextColumn::make('email')->searchable(),
+                Tables\Columns\ToggleColumn::make('verified'),
+                Tables\Columns\ToggleColumn::make('active'),
+                Tables\Columns\TextColumn::make('iban.iban')->label('iban')->searchable(),
+                Tables\Columns\TextColumn::make('socialAccount.url')->label('Social Account')->searchable(),
                 Tables\Columns\TextColumn::make('password'),
+
+
             ])
             ->filters([
                 //

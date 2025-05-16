@@ -6,6 +6,7 @@ use App\Filament\Resources\SocialResource\Pages;
 use App\Filament\Resources\SocialResource\RelationManagers;
 use App\Models\Social;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -28,20 +29,21 @@ class SocialResource extends Resource
                     ->required()
                     ->maxLength(255),
 
-                Forms\Components\FileUpload::make('icon')
-                    ->directory('social-icons')
-                    ->image()
-                    ->maxSize(1024)
-                    ->helperText('Upload social media icon (max 1MB)'),
+//                Forms\Components\FileUpload::make('icon')
+//                    ->directory('social-icons')
+//                    ->image()
+//                    ->maxSize(1024)
+//                    ->helperText('Upload social media icon (max 1MB)'),
+                TextInput::make('icon_text')->required(),
 
                 Forms\Components\TextInput::make('url')
                     ->required()
                     ->url()
                     ->maxLength(255),
 
-                Forms\Components\TextInput::make('sort_order')
-                    ->numeric()
-                    ->default(0),
+//                Forms\Components\TextInput::make('sort_order')
+//                    ->numeric()
+//                    ->default(0),
 
                 Forms\Components\Toggle::make('is_active')
                     ->default(true),
@@ -53,8 +55,8 @@ class SocialResource extends Resource
         return $table
             ->columns([
                 //
-                Tables\Columns\ImageColumn::make('icon')
-                    ->size(40),
+//                Tables\Columns\ImageColumn::make('icon')
+//                    ->size(40),
 
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
@@ -65,8 +67,10 @@ class SocialResource extends Resource
 
                 Tables\Columns\ToggleColumn::make('is_active'),
 
-                Tables\Columns\TextColumn::make('sort_order')
-                    ->sortable(),
+//                Tables\Columns\TextColumn::make('sort_order')
+//                    ->sortable(),
+                 Tables\Columns\TextColumn::make('icon_text')
+
             ])
             ->filters([
                 //

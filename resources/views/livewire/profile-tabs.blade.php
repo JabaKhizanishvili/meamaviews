@@ -76,9 +76,17 @@
                                     <h5 class="mb-0">ანგარიშის ვერიფიკაცია</h5>
                                 </div>
                                 <div class="card-body">
-                                    <div class="alert alert-info" role="alert">
-                                        <i class="fas fa-info-circle me-2"></i>აქ შეგიძლიათ შეამოწმოთ თქვენი ანგარიშის ვერიფიკაციის სტატუსი.
+
+                                    @if($verified)
+                                    <div class="alert alert-success" role="alert">
+                                        <i class="fas fa-info-circle me-2"></i>ანგარიში ვერიფიცირებულია.
                                     </div>
+                                    @else
+                                        <div class="alert alert-info" role="alert">
+                                            <i class="fas fa-info-circle me-2"></i>ვერიდიკაციის სტატუსი : მომლოდინე
+                                        </div>
+                                    @endif
+
                                     @livewire('verification-form')
                                 </div>
                             </div>

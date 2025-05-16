@@ -59,10 +59,13 @@
                         <!-- Social buttons -->
                         <span class="heading-color fw-semibold">Follow on:</span>
                         <ul class="list-inline align-items-center mb-0 mt-3">
-                            <li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-facebook" href="#"><i class="bi bi-facebook lh-base"></i></a> </li>
-                            <li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-instagram" href="#"><i class="bi bi-instagram lh-base"></i></a> </li>
-                            <li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-twitter-x" href="#"><i class="bi bi-twitter-x lh-base"></i></a> </li>
-                            <li class="list-inline-item"> <a class="btn btn-xs btn-icon bg-linkedin" href="#"><i class="bi bi-linkedin lh-base"></i></a> </li>
+                            @foreach($socials as $val)
+                            <li class="list-inline-item">
+                                <a class="btn btn-xs btn-icon bg-{{$val->name}}" href="{{$val->url}}"><i class="{{$val->icon_text}}"></i></a>
+                            </li>
+
+                            @endforeach
+
                         </ul>
                     </div>
                 </div>

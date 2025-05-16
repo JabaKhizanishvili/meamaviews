@@ -40,6 +40,16 @@ class VerificationForm extends Component
             ['user_id' => $user->id, 'provider' => 'tiktok'],
             ['url' => $this->tiktok_link]
         );
+
+        $hasIban = $user->iban()->exists();
+        $hasTikTok = $user->socialAccount()->where('provider', 'tiktok')->exists();
+
+        if ($hasIban && $hasTikTok) {
+            $user->verified = true;
+            $user->save();
+        }
+
+
         session()->flash('success', 'განახლდა წარმატებით ✅');
     }
     public function render()
