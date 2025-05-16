@@ -57,7 +57,8 @@
     })
 </script>
 
-@vite(['node_modules/bootstrap-icons/font/bootstrap-icons.min.css' ])
+{{--@vite(['node_modules/bootstrap-icons/font/bootstrap-icons.min.css' ])--}}
+@vite(['resources/js/app.js'])
 
 @yield('css')
 
