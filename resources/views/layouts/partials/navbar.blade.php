@@ -157,6 +157,12 @@
                         <!-- Nav item -->
                         <li class="nav-item"> <a class="nav-link" href="{{ route('about') }}">ჩვენს შესახებ</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('contact') }}">კონტაქტი</a> </li>
+                        @auth()
+                        @else
+                        <li class="nav-item ms-2 d-block d-sm-none">
+                            <a class="nav-link btn btn-sm btn-primary-grad mb-0" href="{{ route('register.index') }}">რეგისტრაცია</a>
+                        </li>
+                        @endauth
                     </ul>
                 </div>
                 <!-- Main navbar END -->

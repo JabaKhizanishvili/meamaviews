@@ -204,7 +204,7 @@
                 <!-- Title -->
                 <div class="col-lg-3">
                     <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
-                        <h6 class="mb-0">Collaborating with industry leaders</h6>
+                        <h6 class="mb-0">პარტნიორი კომპანიები</h6>
                         <div class="vr bg-primary-grad opacity-2 d-none d-lg-block"></div>
                     </div>
                 </div>
