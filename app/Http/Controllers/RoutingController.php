@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,7 +10,8 @@ class RoutingController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $partners = Partner::where('is_active' ,1)->get();
+        return view('index', compact('partners'));
     }
 
     /**

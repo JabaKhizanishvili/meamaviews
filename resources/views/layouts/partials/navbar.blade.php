@@ -160,7 +160,8 @@
                         @auth()
                         @else
                         <li class="nav-item ms-2 d-block d-sm-none">
-                            <a class="nav-link btn btn-sm btn-primary-grad mb-0" href="{{ route('register.index') }}">რეგისტრაცია</a>
+{{--                            <a class="nav-link btn btn-sm btn-primary-grad mb-0" href="{{ route('register.index') }}">რეგისტრაცია</a>--}}
+                            <a class="nav-link btn btn-sm btn-primary-grad mb-0" href="{{ route('login') }}">ავტორიზაცია</a>
                         </li>
                         @endauth
                     </ul>
@@ -236,7 +237,8 @@
                         </div>
                     @else
                         <li class="nav-item ms-2 d-none d-sm-block">
-                            <a href="{{ route('register.index') }}" class="btn btn-sm btn-primary-grad mb-0">რეგისტრაცია</a>
+{{--                            <a href="{{ route('register.index') }}" class="btn btn-sm btn-primary-grad mb-0">რეგისტრაცია</a>--}}
+                            <a href="{{ route('login') }}" class="btn btn-sm btn-primary-grad mb-0">ავტორიზაცია</a>
                         </li>
                     @endauth
 
