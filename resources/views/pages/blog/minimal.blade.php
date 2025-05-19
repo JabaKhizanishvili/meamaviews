@@ -23,8 +23,8 @@
             <!-- Breadcrumb -->
             <nav class="mb-2 d-flex justify-content-center" aria-label="breadcrumb">
                 <ol class="breadcrumb pt-0">
-                    <li class="breadcrumb-item"><a href="{{ route('any', 'index') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Blog Minimal</li>
+                    <li class="breadcrumb-item"><a href="{{ route('any', 'index') }}">მთავარი</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">თემატიკები</li>
                 </ol>
             </nav>
 
@@ -105,32 +105,32 @@
                 </div>
 
                 <!-- Blog item -->
-                <div class="col-12">
-                    <article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">
-                        <!-- Card image -->
-                        <div class="card-img-scale-wrapper rounded-4">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/9No-FiEInLA"
-                                    allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
-                            </div>
-                        </div>
+{{--                <div class="col-12">--}}
+{{--                    <article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">--}}
+{{--                        <!-- Card image -->--}}
+{{--                        <div class="card-img-scale-wrapper rounded-4">--}}
+{{--                            <div class="ratio ratio-16x9">--}}
+{{--                                <iframe src="https://www.youtube.com/embed/9No-FiEInLA"--}}
+{{--                                    allow="autoplay; encrypted-media" allowfullscreen=""></iframe>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <!-- Card Body -->
-                        <div class="card-body px-2">
-                            <!-- Badge -->
-                            <div class="d-flex gap-2 z-index-2 mb-2">
-                                <span class="badge bg-dark">Technology</span>
-                                <span class="badge bg-white text-dark">June 28, 2024</span>
-                            </div>
-                            <!-- Title -->
-                            <h6 class="card-title mb-2"><a href="#">10 things you need to know about Folio</a>
-                            </h6>
-                            <a class="icon-link icon-link-hover"
-                                href="{{ route('third', ['pages', 'blog', 'single']) }}">Read more<i
-                                    class="bi bi-arrow-right"></i> </a>
-                        </div>
-                    </article>
-                </div>
+{{--                        <!-- Card Body -->--}}
+{{--                        <div class="card-body px-2">--}}
+{{--                            <!-- Badge -->--}}
+{{--                            <div class="d-flex gap-2 z-index-2 mb-2">--}}
+{{--                                <span class="badge bg-dark">Technology</span>--}}
+{{--                                <span class="badge bg-white text-dark">June 28, 2024</span>--}}
+{{--                            </div>--}}
+{{--                            <!-- Title -->--}}
+{{--                            <h6 class="card-title mb-2"><a href="#">10 things you need to know about Folio</a>--}}
+{{--                            </h6>--}}
+{{--                            <a class="icon-link icon-link-hover"--}}
+{{--                                href="{{ route('third', ['pages', 'blog', 'single']) }}">Read more<i--}}
+{{--                                    class="bi bi-arrow-right"></i> </a>--}}
+{{--                        </div>--}}
+{{--                    </article>--}}
+{{--                </div>--}}
 
                 <!-- Blog item -->
                 <div class="col-md-6">

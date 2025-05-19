@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\RichEditor;
 
 class ContactResource extends Resource
 {
@@ -31,7 +32,7 @@ class ContactResource extends Resource
                     ->tel()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('address')
+                RichEditor::make('address')
                     ->required()
                     ->columnSpanFull(),
             ]);

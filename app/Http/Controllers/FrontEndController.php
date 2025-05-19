@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -17,6 +18,11 @@ class FrontEndController extends Controller
         return view('about.v1');
     }
     public function Contact(){
-        return view('pages.contact-us-v1');
+        $contacts = Contact::first();
+        return view('pages.contact-us-v1', compact('contacts'));
+    }
+
+    public function Themes(Request $request){
+        return view('pages.blog.minimal');
     }
 }

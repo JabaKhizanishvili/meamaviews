@@ -23,7 +23,9 @@ class ViewServiceProvider extends ServiceProvider
     {
         //
 //        View::composer('*', function ($view) {});
-        View::composer('layouts.partials.footer', function ($view) {
+        View::composer([
+            'layouts.partials.footer'
+        ], function ($view) {
             $view->with('socials', Social::where('is_active', true)->get());
         });
     }

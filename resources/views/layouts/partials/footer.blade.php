@@ -13,7 +13,7 @@
             </div>
 
             <div class="col-xl-7 ms-auto">
-                <div class="row g-4">
+                <div class="row g-4 justify-content-end">
                     <!-- Widget item -->
                     <div class="col-6 col-md-3">
                         <h6 class="mb-3 mb-xl-4">Company</h6>
@@ -42,7 +42,7 @@
                     </div>
 
                     <!-- Widget item -->
-                    <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-6 col-md-6 text-end">
                         <h6 class="mb-3 mb-xl-4">Download our app</h6>
                         <p class="mb-3">Get instant access to exclusive features for FREE!</p>
                         <div class="row g-2 mb-4 mb-sm-5">
@@ -61,7 +61,7 @@
                         <ul class="list-inline align-items-center mb-0 mt-3">
                             @foreach($socials as $val)
                             <li class="list-inline-item">
-                                <a class="btn btn-xs btn-icon bg-{{$val->name}}" href="{{$val->url}}"><i class="{{$val->icon_text}}"></i></a>
+                                <a class="btn btn-xs btn-icon bg-{{$val->name}}" href="{{$val->url}}" target="_blank"><i class="{{$val->icon_text}}"></i></a>
                             </li>
 
                             @endforeach
@@ -78,12 +78,12 @@
         <!-- Bottom footer -->
         <div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
             <!-- copyright text -->
-            <div class="text-body small mb-3 mb-md-0"> Copyrights ©2024 Folio. Build by <a href="#" target="_blank" class="text-body text-primary-hover hover-underline-animation">Stackbros</a>. </div>
+            <div class="text-body small mb-3 mb-md-0"> Copyrights ©2024 Folio. Build by <a href="#" target="_blank" class="text-body text-primary-hover hover-underline-animation">J.K</a> </div>
 
             <!-- Policy link -->
             <ul class="nav d-flex justify-content-center gap-1 mb-0">
-                <li class="nav-item"><a class="nav-link small py-0" href="#">Privacy policy</a></li>
-                <li class="nav-item"><a class="nav-link small py-0 pe-0" href="#">Terms &amp; conditions</a></li>
+                <li class="nav-item"><a class="nav-link small py-0" href="#">კონფიდენციალურობის პოლიტიკა</a></li>
+                <li class="nav-item"><a class="nav-link small py-0 pe-0" href="#">წესები &amp; პირობები</a></li>
             </ul>
         </div>
     </div>

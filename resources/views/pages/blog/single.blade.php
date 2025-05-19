@@ -1,7 +1,8 @@
 @extends('layouts.landing', ['headerClass' => 'header-absolute', 'buttons' => true])
 
 @section('css')
-@vite(['node_modules/glightbox/dist/css/glightbox.css', 'node_modules/swiper/swiper-bundle.min.css'])
+{{--@vite(['node_modules/glightbox/dist/css/glightbox.css', 'node_modules/swiper/swiper-bundle.min.css'])--}}
+@vite(['node_modules/swiper/swiper-bundle.min.css'])
 @endsection
 
 @section('content')

@@ -155,6 +155,7 @@
 
 
                         <!-- Nav item -->
+                        <li class="nav-item"> <a class="nav-link" href="{{ route('themes') }}">თემატიკები</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('about') }}">ჩვენს შესახებ</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('contact') }}">კონტაქტი</a> </li>
                         @auth()

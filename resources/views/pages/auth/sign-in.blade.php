@@ -53,6 +53,15 @@
                             </div>
                             <!-- Button -->
                             <div class="d-grid"><button type="submit" class="btn btn-primary">ავტორიზაცია</button></div>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul class="mb-0">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
                             <!-- Divider -->
                             <div class="d-flex align-items-center my-3">
