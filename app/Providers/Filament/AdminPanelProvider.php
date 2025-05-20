@@ -38,9 +38,9 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->authGuard('admin')
-//            ->authMiddleware([
-//                'auth:admin', // <- guard
-//            ])
+            ->authMiddleware([
+                Authenticate::class.':admin',
+            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -64,9 +64,10 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-            ])
-            ->authMiddleware([
-                Authenticate::class,
             ]);
+//            ->authMiddleware([
+//                Authenticate::class.':admin',
+//            ]
+//            );
     }
 }

@@ -5,11 +5,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ExternalAuthController;
-
+use App\Http\Controllers\AdminLogoutController;
+use App\Http\Livewire\LaravelExamples\UserProfile;
+use App\Http\Livewire\LaravelExamples\UserManagement;
+use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Billing;
+use App\Http\Livewire\Profile;
+use App\Http\Livewire\Tables;
 
 // admin routes
 
 //logs
+Route::post('/admin/logout', AdminLogoutController::class)
+    ->name('filament.admin.auth.logout');
 
 
 Route::middleware(['auth:admin'])
@@ -63,7 +71,21 @@ Route::post('/logout', [RegisterController::class, 'logout'])->name('logout');
 
 
 Route::middleware(['auth:web'])->group(function () {
-    Route::get('/dashboard', [FrontEndController::class, 'dashboard'])->name('dashboard');
+//    Route::get('/dashboard', [FrontEndController::class, 'dashboard'])->name('dashboard');
+
+//    Route::get('/dashboard', [FrontEndController::class,'dashboard'])->name('dashboard');
+//    Route::get('/billing', [FrontEndController::class, 'billing'])->name('billing');
+//    Route::get('/profile', [FrontEndController::class,'profile'])->name('profile');
+//    Route::get('/tables', [FrontEndController::class,'tables'])->name('tables');
+//    Route::get('/laravel-user-profile', [FrontEndController::class,'user_profile'])->name('user-profile');
+//    Route::get('/laravel-user-management', [FrontEndController::class, 'user_management'])->name('user-management');
+
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/billing', Billing::class)->name('billing');
+    Route::get('/profile', Profile::class)->name('profile');
+    Route::get('/tables', Tables::class)->name('tables');
+    Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
+    Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
 });
 
 Route::get('{first}/{second}/{third}', [RoutingController::class, 'thirdLevel'])->name('third');

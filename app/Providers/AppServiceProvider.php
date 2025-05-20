@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Filament\Facades\Filament;
 use Filament\Navigation\NavigationItem;
+//use Filament\Http\Responses\Auth\Contracts\LogoutResponse;
+//use App\Filament\Responses\CustomLogoutResponse;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
+//        $this->app->bind(LogoutResponse::class, CustomLogoutResponse::class);
     }
 
     /**
