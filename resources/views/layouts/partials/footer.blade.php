@@ -78,7 +78,7 @@
         <!-- Bottom footer -->
         <div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
             <!-- copyright text -->
-            <div class="text-body small mb-3 mb-md-0"> Copyrights ©2024 Folio. Build by <a href="#" target="_blank" class="text-body text-primary-hover hover-underline-animation">J.K</a> </div>
+            <div class="text-body small mb-3 mb-md-0"> Copyrights ©2025 Build by <a href="#" target="_blank" class="text-body text-primary-hover hover-underline-animation">J.K</a> </div>
 
             <!-- Policy link -->
             <ul class="nav d-flex justify-content-center gap-1 mb-0">
