@@ -53,56 +53,44 @@
             <div class="row g-4 g-lg-6">
 
                 <!-- Blog item -->
+                @foreach($theme as $value)
+
                 <div class="col-md-6">
                     <article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">
                         <!-- Badge -->
                         <div class="d-flex gap-2 position-absolute top-0 start-0 z-index-2 m-4">
-                            <span class="badge bg-dark">Technology</span>
-                            <span class="badge bg-white text-dark">June 28, 2024</span>
+{{--                            <span class="badge bg-dark">Technology</span>--}}
+                            <span class="badge bg-white text-dark">
+{{--                                {{ date('y m d',$value->created_at)}}--}}
+                                {{ date('y m d', strtotime($value->created_at)) }}
+                            </span>
                         </div>
 
                         <!-- Card image -->
                         <div class="card-img-scale-wrapper rounded-4">
-                            <img src="/images/blog/4by3/01.jpg" class="rounded-4 img-scale" alt="Blog-img">
+                            <img
+                                 src="{{Storage::url($value->image)}}"
+                                 class="rounded-4 img-scale" alt="Blog-img"
+                            >
                         </div>
 
                         <!-- Card Body -->
                         <div class="card-body px-2">
                             <!-- Title -->
-                            <h6 class="card-title mb-2"><a href="#">Building a strong identity for your
-                                    business</a></h6>
+                            <h6 class="card-title mb-2"><a href="#">
+                                    {{$value->title}}
+                                </a></h6>
                             <a class="icon-link icon-link-hover stretched-link"
-                                href="{{ route('third', ['pages', 'blog', 'single']) }}">Read more<i
+{{--                                href="{{ route('third', ['pages', 'blog', 'single']) }}">Read more<i--}}
+                                href="{{ route('single.theme', $value->slug) }}">დეტალურად<i
                                     class="bi bi-arrow-right"></i> </a>
                         </div>
                     </article>
                 </div>
 
-                <!-- Blog item -->
-                <div class="col-md-6">
-                    <article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">
-                        <!-- Badge -->
-                        <div class="d-flex gap-2 position-absolute top-0 start-0 z-index-2 m-4">
-                            <span class="badge bg-dark">Research</span>
-                            <span class="badge bg-white text-dark">July 15, 2024</span>
-                        </div>
+                @endforeach
 
-                        <!-- Card image -->
-                        <div class="card-img-scale-wrapper rounded-4">
-                            <img src="/images/blog/4by3/04.jpg" class="rounded-4 img-scale" alt="Blog-img">
-                        </div>
 
-                        <!-- Card Body -->
-                        <div class="card-body px-2">
-                            <!-- Title -->
-                            <h6 class="card-title mb-2"><a href="#">Tips for improving your website's
-                                    visibility</a></h6>
-                            <a class="icon-link icon-link-hover stretched-link"
-                                href="{{ route('third', ['pages', 'blog', 'single']) }}">Read more<i
-                                    class="bi bi-arrow-right"></i> </a>
-                        </div>
-                    </article>
-                </div>
 
                 <!-- Blog item -->
 {{--                <div class="col-12">--}}
@@ -132,121 +120,76 @@
 {{--                    </article>--}}
 {{--                </div>--}}
 
-                <!-- Blog item -->
-                <div class="col-md-6">
-                    <article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">
-                        <!-- Badge -->
-                        <div class="d-flex gap-2 position-absolute top-0 start-0 z-index-2 m-4">
-                            <span class="badge bg-dark">Design</span>
-                            <span class="badge bg-white text-dark">June 28, 2024</span>
-                        </div>
 
-                        <!-- Card image -->
-                        <div class="card-img-scale-wrapper rounded-4">
-                            <img src="/images/blog/4by3/02.jpg" class="rounded-4 img-scale" alt="Blog-img">
-                        </div>
 
-                        <!-- Card Body -->
-                        <div class="card-body px-2">
-                            <!-- Title -->
-                            <h6 class="card-title mb-2"><a href="#">Techniques to captivate your audience</a>
-                            </h6>
-                            <a class="icon-link icon-link-hover stretched-link"
-                                href="{{ route('third', ['pages', 'blog', 'single']) }}">Read more<i
-                                    class="bi bi-arrow-right"></i> </a>
-                        </div>
-                    </article>
-                </div>
 
-                <!-- Blog item -->
-                <div class="col-md-6">
-                    <article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">
-                        <!-- Badge -->
-                        <div class="d-flex gap-2 position-absolute top-0 start-0 z-index-2 m-4">
-                            <span class="badge bg-dark">Research</span>
-                            <span class="badge bg-white text-dark">July 15, 2024</span>
-                        </div>
-
-                        <!-- Card image -->
-                        <div class="card-img-scale-wrapper rounded-4">
-                            <img src="/images/blog/4by3/03.jpg" class="rounded-4 img-scale" alt="Blog-img">
-                        </div>
-
-                        <!-- Card Body -->
-                        <div class="card-body px-2">
-                            <!-- Title -->
-                            <h6 class="card-title mb-2"><a href="#">Never underestimate the influence</a></h6>
-                            <a class="icon-link icon-link-hover stretched-link"
-                                href="{{ route('third', ['pages', 'blog', 'single']) }}">Read more<i
-                                    class="bi bi-arrow-right"></i> </a>
-                        </div>
-                    </article>
-                </div>
 
                 <!-- Pagination -->
+{{--                <div class="col-12">--}}
+{{--                    <nav aria-label="Page navigation">--}}
+{{--                        <ul class="pagination pagination-primary-grad d-flex justify-content-center">--}}
+{{--                            <li class="page-item disabled">--}}
+{{--                                <a class="page-link"><i class="bi bi-chevron-left mx-n1 rtl-flip"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li class="page-item active" aria-current="page">--}}
+{{--                                <span class="page-link">--}}
+{{--                                    1--}}
+{{--                                    <span class="visually-hidden">(current)</span>--}}
+{{--                                </span>--}}
+{{--                            </li>--}}
+{{--                            <li class="page-item">--}}
+{{--                                <a href="#" class="page-link">2</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="page-item">--}}
+{{--                                <a href="#" class="page-link">3</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="page-item">--}}
+{{--                                <a href="#" class="page-link">4</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="page-item">--}}
+{{--                                <a href="#" class="page-link" aria-label="Next page">--}}
+{{--                                    <i class="bi bi-chevron-right mx-n1 rtl-flip"></i>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </nav>--}}
+{{--                </div>--}}
                 <div class="col-12">
                     <nav aria-label="Page navigation">
                         <ul class="pagination pagination-primary-grad d-flex justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link"><i class="bi bi-chevron-left mx-n1 rtl-flip"></i></a>
+
+                            {{-- წინა გვერდი --}}
+                            <li class="page-item {{ $theme->onFirstPage() ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $theme->previousPageUrl() ?? '#' }}" aria-label="Previous">
+                                    <i class="bi bi-chevron-left mx-n1 rtl-flip"></i>
+                                </a>
                             </li>
-                            <li class="page-item active" aria-current="page">
-                                <span class="page-link">
-                                    1
-                                    <span class="visually-hidden">(current)</span>
-                                </span>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">4</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Next page">
+
+                            {{-- გვერდების ციკლი --}}
+                            @foreach ($theme->getUrlRange(1, $theme->lastPage()) as $page => $url)
+                                <li class="page-item {{ $page == $theme->currentPage() ? 'active' : '' }}" aria-current="{{ $page == $theme->currentPage() ? 'page' : '' }}">
+                                    @if($page == $theme->currentPage())
+                                        <span class="page-link">
+                            {{ $page }}
+                            <span class="visually-hidden">(current)</span>
+                        </span>
+                                    @else
+                                        <a href="{{ $url }}" class="page-link">{{ $page }}</a>
+                                    @endif
+                                </li>
+                            @endforeach
+
+                            {{-- შემდეგი გვერდი --}}
+                            <li class="page-item {{ !$theme->hasMorePages() ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $theme->nextPageUrl() ?? '#' }}" aria-label="Next">
                                     <i class="bi bi-chevron-right mx-n1 rtl-flip"></i>
                                 </a>
                             </li>
+
                         </ul>
                     </nav>
                 </div>
 
-                <!-- Newsletter -->
-                <div class="col-12">
-                    <div class="bg-body position-relative rounded-3 overflow-hidden p-4 p-sm-6">
-                        <!-- BG pattern -->
-                        <div class="position-absolute end-0 top-0 rotate-343 mt-n5 me-n8">
-                            <img src="/images/elements/grad-shape/05.png" class="h-200px h-sm-300px"
-                                alt="bg pattern">
-                        </div>
-
-                        <!-- BG pattern -->
-                        <div class="position-absolute start-0 top-0 rotate-343 mt-n5 ms-n6">
-                            <img src="/images/elements/grad-shape/11.png" class="h-200px blur-2" alt="bg pattern">
-                        </div>
-
-                        <div class="position-relative text-center">
-                            <h3 class="fw-bold mb-4">Subscribe to new<span class="text-primary-grad"> updates</span>
-                            </h3>
-
-                            <!-- Subscribe input -->
-                            <form class="row g-2 align-items-center justify-content-center">
-                                <div class="col-auto col-md-8 col-lg-6">
-                                    <input type="email" class="form-control form-control-lg bg-secondary"
-                                        placeholder="Enter your email address">
-                                </div>
-                                <div class="col-auto">
-                                    <button type="submit" class="btn btn-lg btn-dark m-0">Subscribe!</button>
-                                </div>
-
-                                <p class="small mt-2">✌️ No Spam — We Promise!</p>
-                            </form>
-                        </div>
-                    </div>
-                </div>
 
             </div> <!-- Row END -->
         </div>

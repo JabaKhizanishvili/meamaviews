@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Models\Theme;
 use Livewire\Component;
 class FrontEndController extends Controller
 {
@@ -50,6 +51,20 @@ class FrontEndController extends Controller
     }
 
     public function Themes(Request $request){
-        return view('pages.blog.minimal');
+        $theme = Theme::where('active', 1)->paginate('6');
+        return view('pages.blog.minimal', compact('theme'));
+    }
+
+    public function SingleTheme(Request $request, $slug){
+        $theme = Theme::where('slug', $slug)
+            ->where('active', 1)
+            ->firstOrFail();
+        $similar = Theme::where('slug', '!=', $slug)
+            ->where('active', 1)
+            ->inRandomOrder()
+            ->get()->take(3);
+
+
+        return view('pages.blog.single', compact('theme', 'similar'));
     }
 }
