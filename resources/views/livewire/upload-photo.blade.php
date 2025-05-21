@@ -76,11 +76,9 @@
         <div class="avatar avatar-xl position-relative">
             <img src="{{ $user->profile_photo_path ? asset('storage/' . $user->profile_photo_path) :  asset('assets/img/team-1.jpg') }}"
                  alt="Profile Image" class="w-100 border-radius-lg shadow-sm">
-
             <label for="photo" class="btn btn-sm btn-icon-only bg-gradient-light position-absolute bottom-0 end-0 mb-n2 me-n2" style="cursor: pointer;">
                 <i class="fa fa-pen top-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Image"></i>
             </label>
-
             <input type="file" id="photo" wire:model.live="photo" class="d-none" accept="image/*">
         </div>
 

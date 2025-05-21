@@ -44,10 +44,7 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
-
-            <li class="nav-item mt-2">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Laravel Examples</h6>
-            </li>
+            
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'user-profile' ? 'active' : '' }}"
                     href="{{ route('user-profile') }}">
@@ -91,9 +88,6 @@
                 </a>
             </li>
 
-            <li class="nav-item mt-2">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Example pages</h6>
-            </li>
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'tables' ? 'active' : '' }}"
                     href="{{ route('tables') }}">
