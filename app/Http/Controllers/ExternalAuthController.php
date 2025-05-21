@@ -99,14 +99,30 @@ class ExternalAuthController extends Controller
     public function tiktokCallBack(Request $request){
         $tiktokUser = Socialite::driver('tiktok')->user();
 
+//        for live
+
+//        $user = User::firstOrCreate([
+//            'tiktok_id' => $tiktokUser->getId(),
+//        ], [
+//            'email' => $tiktokUser->getEmail() ?? $tiktokUser->getId() . '@tiktok.fake',
+//            'name' => $tiktokUser->getName() ?? 'TikTok User',
+//            'password' => bcrypt(Str::random(24)),
+//            'avatar' => $tiktokUser->getAvatar(),
+//        ]);
+
+//        for sandbox
+
         $user = User::firstOrCreate([
             'tiktok_id' => $tiktokUser->getId(),
         ], [
-            'email' => $tiktokUser->getEmail() ?? $tiktokUser->getId() . '@tiktok.fake',
+            'email' => uniqid() . '@tiktok.fake', // fake და უნიკალურია ყოველთვის
             'name' => $tiktokUser->getName() ?? 'TikTok User',
             'password' => bcrypt(Str::random(24)),
             'avatar' => $tiktokUser->getAvatar(),
         ]);
+
+
+
 
 //        $user = \App\Models\User::firstOrCreate([
 //            'email' => $tiktokUser->email ?? $tiktokUser->getId().'@tiktok.fake', // fallback თუ email არ აქვს
