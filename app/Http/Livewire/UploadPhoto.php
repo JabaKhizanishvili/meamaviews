@@ -19,7 +19,7 @@ class UploadPhoto extends Component
 
     // შემოწმების წესები
     protected $rules = [
-        'photo' => 'image|max:2240', // 10MB
+        'photo' => 'image|max:10240', // 10MB
     ];
 
     public function mount()
