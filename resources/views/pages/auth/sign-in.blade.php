@@ -74,7 +74,11 @@
                             <div class="d-flex justify-content-center gap-3">
                                 <a href="{{ route('external.social.redirect', 'google') }}" class="btn btn-icon border bg-white" href="#"><i
                                         class="bi bi-google lh-base text-google-icon"></i></a>
+
+                                <a href="{{ route('external.social.tiktok') }}" class="btn btn-icon border bg-white" href="#"><i
+                                        class="bi bi-tiktok lh-base text-tiktok-icon"></i></a>
                             </div>
+
 
                             <!-- Copyright -->
 {{--                            <div class="text-body small mt-3"> Copyrights ©2024 Folio. Build by <a--}}

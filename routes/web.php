@@ -46,6 +46,9 @@ Route::middleware('guest')->group(function () {
 //        Route::get('auth/{provider}/callback', [ExternalAuthController::class, 'handleProviderCallback'])->name('external.social.callback');
     Route::get('auth/google/callback', [ExternalAuthController::class, 'callback'])->name('external.social.callback');
 
+    Route::get('/auth/tiktok', [ExternalAuthController::class, 'HandleTiktok'])->name('external.social.tiktok');
+    Route::get('/auth/tiktok/callback', [ExternalAuthController::class, 'tiktokCallBack'])->name('external.social.tiktok.callback');
+
     Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 //    Route::get('/login', [RegisterController::class, 'loginIndex'])->name('login');

@@ -7,6 +7,7 @@ use Filament\Facades\Filament;
 use Filament\Navigation\NavigationItem;
 //use Filament\Http\Responses\Auth\Contracts\LogoutResponse;
 //use App\Filament\Responses\CustomLogoutResponse;
+use Illuminate\Support\Facades\Event;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        Event::listen(function (\SocialiteProviders\Manager\SocialiteWasCalled $event) {
+            $event->extendSocialite('tiktok', \SocialiteProviders\TikTok\Provider::class);
+        });
+
         Filament::serving(function () {
             Filament::registerNavigationItems([
                 NavigationItem::make('System Logs')

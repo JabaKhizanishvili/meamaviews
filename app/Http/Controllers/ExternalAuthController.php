@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 
 class ExternalAuthController extends Controller
 {
     public function redirectToProvider()
     {
         return Socialite::driver('google')->redirect();
-
     }
 
 
@@ -91,5 +91,34 @@ class ExternalAuthController extends Controller
         }
     }
 
+    public function HandleTiktok(Request $request){
+        return Socialite::driver('tiktok')->redirect();
+
+    }
+
+    public function tiktokCallBack(Request $request){
+        $tiktokUser = Socialite::driver('tiktok')->user();
+
+        $user = User::firstOrCreate([
+            'tiktok_id' => $tiktokUser->getId(),
+        ], [
+            'email' => $tiktokUser->getEmail() ?? $tiktokUser->getId() . '@tiktok.fake',
+            'name' => $tiktokUser->getName() ?? 'TikTok User',
+            'password' => bcrypt(Str::random(24)),
+            'avatar' => $tiktokUser->getAvatar(),
+        ]);
+
+//        $user = \App\Models\User::firstOrCreate([
+//            'email' => $tiktokUser->email ?? $tiktokUser->getId().'@tiktok.fake', // fallback თუ email არ აქვს
+//        ], [
+//            'name' => $tiktokUser->getName(),
+//            'tiktok_id' => $tiktokUser->getId(),
+//            'password' => bcrypt(Str::random(24)), // შემთხვევითი პაროლი
+//        ]);
+
+        Auth::login($user);
+
+        return redirect('/dashboard');
+    }
 
 }
