@@ -33,7 +33,7 @@ Route::get('', [RoutingController::class, 'index'])->name('root');
 Route::get('/home', fn() => view('index'))->name('home');
 Route::get('/about', [FrontEndController::class,'About'])->name('about');
 Route::get('/contact', [FrontEndController::class,'Contact'])->name('contact');
-Route::get('/themes', [FrontEndController::class,'Themes'])->name('themes');
+Route::get('/themes{search?}', [FrontEndController::class,'Themes'])->name('themes');
 Route::get('/themes/{slug}', [FrontEndController::class,'SingleTheme'])->name('single.theme');
 
 

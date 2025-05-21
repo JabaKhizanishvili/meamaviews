@@ -35,9 +35,9 @@
 
             <!-- Search box -->
             <div class="col-md-8 mx-auto bg-body shadow-primary rounded-pill position-relative z-index-2 p-1 mt-5">
-                <form class="input-group align-items-center">
-                    <input class="form-control bg-transparent border-0 me-1" type="email" placeholder="Search.....">
-                    <button type="button" class="btn btn-dark btn-round rounded-circle lh-1 mb-0 me-2"><i
+                <form class="input-group align-items-center" action="{{ route('themes') }}" method="GET" >
+                    <input name="search" class="form-control bg-transparent border-0 me-1" type="text" placeholder="Search.....">
+                    <button type="submit" class="btn btn-dark btn-round rounded-circle lh-1 mb-0 me-2"><i
                             class="bi bi-search"></i></button>
                 </form>
             </div>

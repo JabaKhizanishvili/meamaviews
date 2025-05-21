@@ -51,7 +51,19 @@ class FrontEndController extends Controller
     }
 
     public function Themes(Request $request){
-        $theme = Theme::where('active', 1)->paginate('6');
+        $search = $request->input('search') ?? $request->search;
+
+        $query = Theme::where('active', 1);
+
+        if (!empty($search)) {
+            $query->where(function($q) use ($search) {
+                $q->where('title', 'like', '%'.$search.'%')
+                    ->orWhere('text', 'like', '%'.$search.'%');
+            });
+        }
+
+        $theme = $query->paginate(6);
+//        $theme = Theme::where('active', 1)->paginate('6');
         return view('pages.blog.minimal', compact('theme'));
     }
 
