@@ -79,4 +79,14 @@ class FrontEndController extends Controller
 
         return view('pages.blog.single', compact('theme', 'similar'));
     }
+
+    public function PrivacyPolicy(){
+        return view('pages.blog.privacy');
+    }
+
+    public function Terms(){
+        return view('pages.blog.terms');
+    }
+
+
 }

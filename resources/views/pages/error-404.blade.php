@@ -26,7 +26,7 @@
             <!-- Title and contents -->
             <h1 class="h3 mb-3">Ooops! Page not found 😭</h1>
             <p class="mb-3">The page you were looking for doesn't exis</p>
-            <a href="{{ route('any', 'index') }}" class="btn btn-white-shadow mb-0">Back to Homepage</a>
+            <a href="{{ route('root') }}" class="btn btn-white-shadow mb-0">Back to Homepage</a>
         </div>
     </section>
     <!-- =======================

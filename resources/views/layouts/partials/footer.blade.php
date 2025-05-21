@@ -82,8 +82,8 @@
 
             <!-- Policy link -->
             <ul class="nav d-flex justify-content-center gap-1 mb-0">
-                <li class="nav-item"><a class="nav-link small py-0" href="#">კონფიდენციალურობის პოლიტიკა</a></li>
-                <li class="nav-item"><a class="nav-link small py-0 pe-0" href="#">წესები &amp; პირობები</a></li>
+                <li class="nav-item"><a class="nav-link small py-0" href="{{route('privacy.policy')}}">კონფიდენციალურობის პოლიტიკა</a></li>
+                <li class="nav-item"><a class="nav-link small py-0 pe-0" href="{{route('terms.service')}}">წესები &amp; პირობები</a></li>
             </ul>
         </div>
     </div>

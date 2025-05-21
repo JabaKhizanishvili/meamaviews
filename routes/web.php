@@ -35,6 +35,8 @@ Route::get('/about', [FrontEndController::class,'About'])->name('about');
 Route::get('/contact', [FrontEndController::class,'Contact'])->name('contact');
 Route::get('/themes{search?}', [FrontEndController::class,'Themes'])->name('themes');
 Route::get('/themes/{slug}', [FrontEndController::class,'SingleTheme'])->name('single.theme');
+Route::get('/privacy_policy', [FrontEndController::class,'PrivacyPolicy'])->name('privacy.policy');
+Route::get('/terms-of-service', [FrontEndController::class,'Terms'])->name('terms.service');
 
 
 Route::middleware('guest')->group(function () {
@@ -88,6 +90,16 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
 });
+
+//for wrong route
+
+Route::fallback(function () {
+    return redirect()->route('custom.404');
+});
+
+Route::get('/not-found', function () {
+    return view('pages.error-404');
+})->name('custom.404');
 
 Route::get('{first}/{second}/{third}', [RoutingController::class, 'thirdLevel'])->name('third');
 Route::get('{first}/{second}', [RoutingController::class, 'secondLevel'])->name('second');
