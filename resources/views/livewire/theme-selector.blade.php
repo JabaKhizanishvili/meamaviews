@@ -124,9 +124,9 @@
             @endif
 
             @if(session('message'))
-                <div class="alert alert-success">
+                <p class="text-success">
                     {{ session('message') }}
-                </div>
+                </p>
             @endif
 
             @error('theme_id')
@@ -168,37 +168,97 @@
             </thead>
             <tbody>
 
-            @foreach($video as $value)
+{{--            @foreach($video as $value)--}}
 
-            <tr>
+{{--            <tr>--}}
 
-                <td class="text-center">
-                    <p class="text-xs font-weight-bold mb-0">{{$value->title}}</p>
-                </td>
+{{--                <td class="text-center">--}}
+{{--                    <p class="text-xs font-weight-bold mb-0">{{$value->title}}</p>--}}
+{{--                </td>--}}
 
-                <td class="text-center">
-                    <p class="text-xs font-weight-bold mb-0">{{$value->description}}</p>
-                </td>
+{{--                <td class="text-center">--}}
+{{--                    <p class="text-xs font-weight-bold mb-0">{{$value->description}}</p>--}}
+{{--                </td>--}}
 
-                <td class="text-center">
-                    <a href="{{$value->video_url}}" class="text-xs font-weight-bold mb-0" target="_blank"> {{ Str::limit($value->video_url, 25)}} </a>
-                </td>
+{{--                <td class="text-center">--}}
+{{--                    <a href="{{$value->video_url}}" class="text-xs font-weight-bold mb-0" target="_blank"> {{ Str::limit($value->video_url, 25)}} </a>--}}
+{{--                </td>--}}
 
-                <td class="text-center">
-                    <span class="text-secondary text-xs font-weight-bold"> {{ date('y m d',strtotime($value->created_at)) }}  </span>
-                </td>
-                <td class="text-center">
-                    <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                       data-bs-original-title="Edit user">
-                        <i class="fas fa-user-edit text-secondary"></i>
-                    </a>
-                    <span>
-                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                        </span>
-                </td>
-            </tr>
+{{--                <td class="text-center">--}}
+{{--                    <span class="text-secondary text-xs font-weight-bold"> {{ date('y m d',strtotime($value->created_at)) }}  </span>--}}
+{{--                </td>--}}
+{{--                <td class="text-center">--}}
+{{--                    <a href="#" class="mx-3" data-bs-toggle="tooltip"--}}
+{{--                       data-bs-original-title="Edit user">--}}
+{{--                        <i class="fas fa-user-edit text-secondary"></i>--}}
+{{--                    </a>--}}
+{{--                    <span>--}}
+{{--                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>--}}
+{{--                                        </span>--}}
+{{--                </td>--}}
+{{--            </tr>--}}
 
-            @endforeach
+{{--            @endforeach--}}
+
+@foreach($video as $value)
+    <tr>
+        {{-- Title --}}
+        <td class="text-center">
+            @if($editVideoId === $value->id)
+                <input type="text" wire:model.defer="title" class="form-control form-control-sm">
+            @else
+                <p class="text-xs font-weight-bold mb-0">{{ $value->title }}</p>
+            @endif
+        </td>
+
+        {{-- Description --}}
+        <td class="text-center">
+            @if($editVideoId === $value->id)
+                <textarea wire:model.defer="description" class="form-control form-control-sm"></textarea>
+            @else
+                <p class="text-xs font-weight-bold mb-0">{{ $value->description }}</p>
+            @endif
+        </td>
+
+        {{-- Video URL --}}
+        <td class="text-center">
+            @if($editVideoId === $value->id)
+                <input type="text" wire:model.defer="url" class="form-control form-control-sm">
+            @else
+                <a href="{{ $value->video_url }}" class="text-xs font-weight-bold mb-0" target="_blank">
+                    {{ Str::limit($value->video_url, 25) }}
+                </a>
+            @endif
+        </td>
+
+        {{-- Created At --}}
+        <td class="text-center">
+        <span class="text-secondary text-xs font-weight-bold">
+            {{ date('y m d', strtotime($value->created_at)) }}
+        </span>
+        </td>
+
+        {{-- Actions --}}
+        <td class="text-center">
+            @if($editVideoId === $value->id)
+                <a href="#" wire:click.prevent="update" class="mx-2" title="Save">
+                    <i class="fas fa-check text-success"></i>
+                </a>
+                <a href="#" wire:click.prevent="cancelEdit" class="mx-2" title="Cancel">
+                    <i class="fas fa-times text-danger"></i>
+                </a>
+            @else
+                <a href="#" wire:click.prevent="edit({{ $value->id }})" class="mx-2" title="Edit">
+                    <i class="fas fa-user-edit text-secondary"></i>
+                </a>
+                <a href="#" wire:click.prevent="delete({{ $value->id }})" class="mx-2" title="Delete">
+                    <i class="fas fa-trash text-danger"></i>
+                </a>
+            @endif
+        </td>
+    </tr>
+@endforeach
+
 
             </tbody>
         </table>

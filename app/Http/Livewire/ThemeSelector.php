@@ -9,6 +9,7 @@ use App\Models\Video;
 
 class ThemeSelector extends Component
 {
+    public $editVideoId = null;
     public $user;
     public $selectedTheme = null;
     public $themes = [];
@@ -70,13 +71,6 @@ class ThemeSelector extends Component
             'description' => 'nullable|string',
         ]);
 
-//        if (Video::with('theme')->where('theme.slug', $this->theme_id)
-//            ->where('user_id', auth()->id())
-//            ->exists()) {
-//            $this->addError('theme_id', 'თქვენ უკვე ატვირთეთ ვიდეო ამ თემაზე');
-//            session()->flash('error', 'თქვენ უკვე ატვირთეთ ვიდეო ამ თემაზე');
-//            return;
-//        }
         if (
             Video::where('user_id', auth()->id())
                 ->whereHas('theme', function ($query) {
@@ -166,5 +160,56 @@ class ThemeSelector extends Component
     public function render()
     {
         return view('livewire.theme-selector');
+    }
+
+
+//    video update
+
+    public function edit($id)
+    {
+        $video = Video::findOrFail($id);
+        $this->editVideoId = $video->id;
+        $this->title = $video->title;
+        $this->description = $video->description;
+        $this->url = $video->video_url;
+    }
+    public function update()
+    {
+        $this->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'url' => 'required|url',
+        ]);
+
+        $video = Video::findOrFail($this->editVideoId);
+        $video->update([
+            'title' => $this->title,
+            'description' => $this->description,
+            'video_url' => $this->url,
+        ]);
+
+        $this->resetEditFields();
+        $this->video = Video::where('status', 1)->get();
+        session()->flash('message', 'ვიდეო განახლდა წარმატებით!');
+    }
+
+    public function cancelEdit()
+    {
+        $this->resetEditFields();
+    }
+    private function resetEditFields()
+    {
+        $this->editVideoId = null;
+        $this->title = null;
+        $this->description = null;
+        $this->url = null;
+    }
+    public function delete($id)
+    {
+        $video = Video::findOrFail($id);
+        $video->delete();
+        $this->video = Video::where('status', 1)->get();
+        $this->loadTakenThemes();
+        session()->flash('message', 'ვიდეო წარმატებით წაიშალა!');
     }
 }
