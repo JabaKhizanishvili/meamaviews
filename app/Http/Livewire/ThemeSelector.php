@@ -108,6 +108,8 @@ class ThemeSelector extends Component
             ->where('user_id', auth()->id())
             ->get();
         $this->loadTakenThemes();
+        $this->showFormSubmit = false;
+        $this->selectedTheme = false;
 
         // Show success message
         session()->flash('message', 'Video added successfully!');
