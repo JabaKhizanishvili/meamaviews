@@ -90,8 +90,8 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('/billing', Billing::class)->name('billing');
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/tables', Tables::class)->name('tables');
-    Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
-    Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
+    Route::get('/user-profile', UserProfile::class)->name('user-profile');
+    Route::get('/upload_video', UserManagement::class)->name('user-management');
 });
 
 //for wrong route
