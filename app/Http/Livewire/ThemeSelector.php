@@ -26,7 +26,9 @@ class ThemeSelector extends Component
 
     public function mount()
     {
-        $this->video = Video::where('status',1)->get();
+        $this->video = Video::where('status',1)
+            ->where('user_id',auth()->id())
+            ->get();
         $this->user = auth()->user();
         // Define your themes
             $this->themes = Theme::where('active', 1)
@@ -102,7 +104,9 @@ class ThemeSelector extends Component
 
         // Reset form fields
         $this->reset(['title', 'url', 'description']);
-        $this->video = Video::where('status', 1)->get();
+        $this->video = Video::where('status', 1)
+            ->where('user_id', auth()->id())
+            ->get();
         $this->loadTakenThemes();
 
         // Show success message
@@ -189,7 +193,9 @@ class ThemeSelector extends Component
         ]);
 
         $this->resetEditFields();
-        $this->video = Video::where('status', 1)->get();
+        $this->video = Video::where('status', 1)
+            ->where('user_id',auth()->id())
+            ->get();
         session()->flash('message', 'ვიდეო განახლდა წარმატებით!');
     }
 
