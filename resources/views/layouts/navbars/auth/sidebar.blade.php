@@ -41,10 +41,10 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
+                    <span class="nav-link-text ms-1">დეშბორდი</span>
                 </a>
             </li>
-            
+
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'user-profile' ? 'active' : '' }}"
                     href="{{ route('user-profile') }}">
@@ -73,7 +73,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">User Profile</span>
+                    <span class="nav-link-text ms-1">პროფილი</span>
                 </a>
             </li>
             <li class="nav-item pb-2">
@@ -84,7 +84,7 @@
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['user-management']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
-                    <span class="nav-link-text ms-1">User Management</span>
+                    <span class="nav-link-text ms-1">ვიდეოს ატვირთვა</span>
                 </a>
             </li>
 
