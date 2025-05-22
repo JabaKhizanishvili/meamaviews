@@ -15,6 +15,7 @@ use Filament\Tables\Table;
 use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\TextColumn;
 
 class ThemeResource extends Resource
 {
@@ -46,6 +47,8 @@ class ThemeResource extends Resource
                 RichEditor::make('text')
                     ->required()
                     ->columnSpanFull(),
+
+                RichEditor::make('hashtag')->required()->columnSpanFull(),
             ]);
     }
 
@@ -57,6 +60,13 @@ class ThemeResource extends Resource
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('slug')->searchable(),
                 Tables\Columns\TextColumn::make('title')->searchable(),
+//                Tables\Columns\TextColumn::make('hashtag')->searchable(),
+                TextColumn::make('hashtag')
+                    ->formatStateUsing(fn ($state) => strip_tags(html_entity_decode($state)))
+                    ->limit(100)
+                    ->searchable(),
+
+
                 Tables\Columns\ToggleColumn::make('active'),
             ])
             ->filters([

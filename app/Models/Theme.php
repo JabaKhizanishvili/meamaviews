@@ -13,5 +13,6 @@ class Theme extends Model
         'image',
         'text',
         'active',
+        'hashtag',
     ];
 }
