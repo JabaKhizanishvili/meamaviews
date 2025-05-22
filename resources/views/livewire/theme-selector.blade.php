@@ -88,7 +88,7 @@
                         {{--                                <label for="user-name" class="form-control-label">{{ __('Full Name') }}</label>--}}
                         <label for="title" class="form-control-label">ვიდეოს სათაური</label>
                         <div class="@error('title')border border-danger rounded-3 @enderror">
-                            <input wire:model.live="title" class="form-control" type="text" placeholder="Name"
+                            <input wire:model.live="title" class="form-control" type="text" placeholder="ვიდეოს სათაური"
                                    id="user-name">
                         </div>
                         @error('title') <div class="text-danger">{{ $message }}</div> @enderror
@@ -99,7 +99,7 @@
                         {{--                                <label for="user-name" class="form-control-label">{{ __('Full Name') }}</label>--}}
                         <label for="url" class="form-control-label">ვიდეოს ლინკი (url)</label>
                         <div class="@error('url')border border-danger rounded-3 @enderror">
-                            <input wire:model.live="url" class="form-control" type="text" placeholder="Name"
+                            <input wire:model.live="url" class="form-control" type="text" placeholder="https://www.tiktok.com/@onlyonepercent__/video/7506868720472673544?is_from_webapp=1&sender_device=pc"
                                    id="user-name">
                         </div>
                         @error('url') <div class="text-danger">{{ $message }}</div> @enderror
@@ -205,7 +205,13 @@
         {{-- Title --}}
         <td class="text-center">
             @if($editVideoId === $value->id)
-                <input type="text" wire:model.defer="title" class="form-control form-control-sm">
+                <input
+                    type="text"
+                    wire:model.defer="title"
+                    wire:keydown.enter="update"
+                    class="form-control form-control-sm"
+                >
+                @error('title') <div class="text-danger">{{ $message }}</div> @enderror
             @else
                 <p class="text-xs font-weight-bold mb-0">{{ $value->title }}</p>
             @endif
@@ -223,7 +229,13 @@
         {{-- Video URL --}}
         <td class="text-center">
             @if($editVideoId === $value->id)
-                <input type="text" wire:model.defer="url" class="form-control form-control-sm">
+                <input
+                    type="text"
+                    wire:model.defer="url"
+                    wire:keydown.enter="update"
+                    class="form-control form-control-sm"
+                >
+                @error('url') <div class="text-danger">{{ $message }}</div> @enderror
             @else
                 <a href="{{ $value->video_url }}" class="text-xs font-weight-bold mb-0" target="_blank">
                     {{ Str::limit($value->video_url, 25) }}
