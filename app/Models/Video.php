@@ -14,6 +14,8 @@ class Video extends Model
         'description',
         'video_url',
         'status',
+        'views',
+        'earned_amount',
     ];
 
 

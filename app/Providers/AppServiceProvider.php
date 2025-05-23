@@ -8,6 +8,8 @@ use Filament\Navigation\NavigationItem;
 //use Filament\Http\Responses\Auth\Contracts\LogoutResponse;
 //use App\Filament\Responses\CustomLogoutResponse;
 use Illuminate\Support\Facades\Event;
+use App\Observers\VideoObserver;
+use App\Models\Video;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,5 +42,8 @@ class AppServiceProvider extends ServiceProvider
                     ->sort(3),
             ]);
         });
+
+        Video::observe(VideoObserver::class);
+
     }
 }

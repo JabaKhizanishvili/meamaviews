@@ -33,6 +33,7 @@ class User extends Authenticatable
         'password',
         'verified',
         'active',
+        'balance',
     ];
 
     /**
@@ -79,15 +80,19 @@ class User extends Authenticatable
         return $this->hasOne(SocialAccount::class);
     }
 
-    public function videos(){
-        return $this->hasMany(UserVideo::class);
-    }
+//    public function videos(){
+//        return $this->hasMany(UserVideo::class);
+//    }
 
 
     public function iban(){
         return $this->hasOne(Iban::class);
     }
     public function video(){
+        return $this->hasMany(Video::class,'user_id');
+    }
+
+    public function videos(){
         return $this->hasMany(Video::class,'user_id');
     }
 

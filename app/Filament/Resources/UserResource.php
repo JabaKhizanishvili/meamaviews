@@ -52,6 +52,7 @@ class UserResource extends Resource
                 Tables\Columns\ToggleColumn::make('verified'),
                 Tables\Columns\ToggleColumn::make('active'),
                 Tables\Columns\TextColumn::make('iban.iban')->label('iban')->searchable(),
+                Tables\Columns\TextColumn::make('balance')->label('balance'),
                 Tables\Columns\TextColumn::make('socialAccount.url')->label('Social Account')
             ->searchable()
             ->formatStateUsing(fn (string $state) => '<a href="' . $state . '" target="_blank" class="text-primary underline">' . $state . '</a>')

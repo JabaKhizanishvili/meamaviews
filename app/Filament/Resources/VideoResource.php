@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\TextInputColumn;
+use Filament\Tables\Columns\TextColumn;
 
 class VideoResource extends Resource
 {
@@ -50,6 +52,32 @@ class VideoResource extends Resource
                     ->searchable()
                     ->formatStateUsing(fn (string $state) => '<a href="' . $state . '" target="_blank" class="text-primary underline">' . $state . '</a>')
                     ->html(),
+//                TextInputColumn::make('views')
+//                    ->label('Views')
+//                    ->rules(['required', 'integer', 'min:0'])  // ვალიდაცია
+//                    ->afterStateUpdated(function ($record, $state, $set) {
+//                        // $state არის ახალი views მნიშვნელობა (int)
+//                        $record->earned_amount = ($state / 1000) * 5;
+//                        $record->saveQuietly();
+//
+//                        $user = $record->user;
+//                        $user->balance = $user->videos()->sum('earned_amount');
+//                        $user->saveQuietly();
+//                    }),
+
+                TextInputColumn::make('views')
+                    ->label('Views')
+                    ->rules(['required', 'integer', 'min:0'])
+                    ->afterStateUpdated(function ($record, $state) {
+                        $record->earned_amount = ($state / 1000) * 5;
+                        $record->saveQuietly();
+
+                        $user = $record->user;
+                        $user->balance = $user->videos()->sum('earned_amount');
+                        $user->saveQuietly();
+                    }),
+
+                TextColumn::make('earned_amount')->money('gel'),
                 Tables\Columns\ToggleColumn::make('status')->searchable(),
                 Tables\Columns\TextColumn::make('created_at')->searchable(),
                 ])
