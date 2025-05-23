@@ -10,6 +10,8 @@ use Filament\Navigation\NavigationItem;
 use Illuminate\Support\Facades\Event;
 use App\Observers\VideoObserver;
 use App\Models\Video;
+use App\Observers\WithdrawalObserver;
+use App\Models\Withdrawal;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -44,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Video::observe(VideoObserver::class);
+        Withdrawal::observe(WithdrawalObserver::class);
 
     }
 }

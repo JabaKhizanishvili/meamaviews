@@ -17,6 +17,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\TextColumn;
 
 class UserResource extends Resource
 {
@@ -52,7 +53,9 @@ class UserResource extends Resource
                 Tables\Columns\ToggleColumn::make('verified'),
                 Tables\Columns\ToggleColumn::make('active'),
                 Tables\Columns\TextColumn::make('iban.iban')->label('iban')->searchable(),
-                Tables\Columns\TextColumn::make('balance')->label('balance'),
+                TextColumn::make('available_balance')
+                    ->label('ბალანსი')
+                    ->money('gel'),
                 Tables\Columns\TextColumn::make('socialAccount.url')->label('Social Account')
             ->searchable()
             ->formatStateUsing(fn (string $state) => '<a href="' . $state . '" target="_blank" class="text-primary underline">' . $state . '</a>')

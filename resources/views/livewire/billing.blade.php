@@ -2,7 +2,7 @@
 <main class="main-content">
     <div class="container-fluid py-4">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="row">
                     <div class="col-xl-6 mb-xl-0 mb-4">
                         <div class="card bg-transparent shadow-xl">
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-xl-6">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header mx-4 p-3 text-center">
                                         <div
@@ -43,31 +43,16 @@
                                         </div>
                                     </div>
                                     <div class="card-body pt-0 p-3 text-center">
-                                        <h6 class="text-center mb-0">Salary</h6>
-                                        <span class="text-xs">Belong Interactive</span>
+                                        <h6 class="text-center mb-0">ბალანსი</h6>
                                         <hr class="horizontal dark my-3">
-                                        <h5 class="mb-0">+$2000</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header mx-4 p-3 text-center">
-                                        <div
-                                            class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
-                                            <i class="fab fa-paypal opacity-10"></i>
-                                        </div>
-                                    </div>
-                                    <div class="card-body pt-0 p-3 text-center">
-                                        <h6 class="text-center mb-0">Paypal</h6>
-                                        <span class="text-xs">Freelance Payment</span>
-                                        <hr class="horizontal dark my-3">
-                                        <h5 class="mb-0">$455.00</h5>
+                                        <h5 class="mb-0"> {{$user->available_balance}}  GEL</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
                     <div class="col-md-12 mb-lg-0 mb-4">
                         <div class="card mt-4">
                             <div class="card-header pb-0 p-3">
@@ -109,85 +94,111 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card h-100">
-                    <div class="card-header pb-0 p-3">
-                        <div class="row">
-                            <div class="col-md-6 d-flex align-items-center">
-                                <h6 class="mb-0">Invoices</h6>
+                        <div class="card mt-4">
+                            <div class="card-header pb-0 p-3">
+                                <div class="row">
+                                    <div class="col-md-6 d-flex align-items-center">
+                                        <h6 class="mb-0">CashOut</h6>
+                                    </div>
+
+                                </div>
                             </div>
-                            <div class="col-md-6 text-right">
-                                <button class="btn btn-outline-primary btn-sm mb-0">View All</button>
+                            <div class="card-body p-3  rounded shadow">
+                                <div class="row">
+                                    <div class="container col-md-6 text-warning">
+
+                                             <p> ქეშაუთს შეძლებთ თვის ბოლო 5 დღეში. ქეშაუთისთვის მინიმალური თანხა ბალანსზე შეადგენს 50 ლარს.
+                                                 ქეშაუთის მოთხოვნის შემდეგ დაელოდეთ საიტის ადმინისტრაციიდან პასუხს. კითხვების შემთხვევაში დაგვიკავშირდით <a class="" href="{{route('contact')}}">კონტაქტი</a>
+
+                                             </p>
+                                    </div>
+
+                                <div class="col-md-6 text-right">
+                                    <livewire:request-withdrawal />
+
+                                </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body p-3 pb-0">
-                        <ul class="list-group">
-                            <li
-                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                <div class="d-flex flex-column">
-                                    <h6 class="mb-1 text-dark font-weight-bold text-sm">March, 01, 2020</h6>
-                                    <span class="text-xs">#CC-214589</span>
-                                </div>
-                                <div class="d-flex align-items-center text-sm">
-                                    $350
-                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                            class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                </div>
-                            </li>
-                            <li
-                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                <div class="d-flex flex-column">
-                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">April, 05, 2020</h6>
-                                    <span class="text-xs">#FB-212562</span>
-                                </div>
-                                <div class="d-flex align-items-center text-sm">
-                                    $560
-                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                            class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                </div>
-                            </li>
-                            <li
-                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                <div class="d-flex flex-column">
-                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">June, 25, 2019</h6>
-                                    <span class="text-xs">#QW-103578</span>
-                                </div>
-                                <div class="d-flex align-items-center text-sm">
-                                    $120
-                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                            class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
-                                <div class="d-flex flex-column">
-                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">March, 01, 2019</h6>
-                                    <span class="text-xs">#AR-803481</span>
-                                </div>
-                                <div class="d-flex align-items-center text-sm">
-                                    $300
-                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                            class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                </div>
-                            </li>
-                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
-                              <div class="d-flex flex-column">
-                                  <h6 class="text-dark mb-1 font-weight-bold text-sm">March, 01, 2019</h6>
-                                  <span class="text-xs">#ST-451897</span>
-                              </div>
-                              <div class="d-flex align-items-center text-sm">
-                                  $275
-                                  <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                          class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                              </div>
-                          </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
+{{--            <div class="col-lg-4">--}}
+{{--                <div class="card h-100">--}}
+{{--                    <div class="card-header pb-0 p-3">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-md-6 d-flex align-items-center">--}}
+{{--                                <h6 class="mb-0">Invoices</h6>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-6 text-right">--}}
+{{--                                <button class="btn btn-outline-primary btn-sm mb-0">View All</button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="card-body p-3 pb-0">--}}
+{{--                        <ul class="list-group">--}}
+{{--                            <li--}}
+{{--                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">--}}
+{{--                                <div class="d-flex flex-column">--}}
+{{--                                    <h6 class="mb-1 text-dark font-weight-bold text-sm">March, 01, 2020</h6>--}}
+{{--                                    <span class="text-xs">#CC-214589</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="d-flex align-items-center text-sm">--}}
+{{--                                    $350--}}
+{{--                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i--}}
+{{--                                            class="fas fa-file-pdf text-lg me-1"></i> PDF</button>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
+{{--                            <li--}}
+{{--                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">--}}
+{{--                                <div class="d-flex flex-column">--}}
+{{--                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">April, 05, 2020</h6>--}}
+{{--                                    <span class="text-xs">#FB-212562</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="d-flex align-items-center text-sm">--}}
+{{--                                    $560--}}
+{{--                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i--}}
+{{--                                            class="fas fa-file-pdf text-lg me-1"></i> PDF</button>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
+{{--                            <li--}}
+{{--                                class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">--}}
+{{--                                <div class="d-flex flex-column">--}}
+{{--                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">June, 25, 2019</h6>--}}
+{{--                                    <span class="text-xs">#QW-103578</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="d-flex align-items-center text-sm">--}}
+{{--                                    $120--}}
+{{--                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i--}}
+{{--                                            class="fas fa-file-pdf text-lg me-1"></i> PDF</button>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
+{{--                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">--}}
+{{--                                <div class="d-flex flex-column">--}}
+{{--                                    <h6 class="text-dark mb-1 font-weight-bold text-sm">March, 01, 2019</h6>--}}
+{{--                                    <span class="text-xs">#AR-803481</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="d-flex align-items-center text-sm">--}}
+{{--                                    $300--}}
+{{--                                    <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i--}}
+{{--                                            class="fas fa-file-pdf text-lg me-1"></i> PDF</button>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
+{{--                            <li class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">--}}
+{{--                              <div class="d-flex flex-column">--}}
+{{--                                  <h6 class="text-dark mb-1 font-weight-bold text-sm">March, 01, 2019</h6>--}}
+{{--                                  <span class="text-xs">#ST-451897</span>--}}
+{{--                              </div>--}}
+{{--                              <div class="d-flex align-items-center text-sm">--}}
+{{--                                  $275--}}
+{{--                                  <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i--}}
+{{--                                          class="fas fa-file-pdf text-lg me-1"></i> PDF</button>--}}
+{{--                              </div>--}}
+{{--                          </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
         <div class="row">
             <div class="col-md-7 mt-4">

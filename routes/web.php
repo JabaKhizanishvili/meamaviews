@@ -87,11 +87,12 @@ Route::middleware(['auth:web'])->group(function () {
 //    Route::get('/laravel-user-management', [FrontEndController::class, 'user_management'])->name('user-management');
 
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/billing', Billing::class)->name('billing');
+    Route::get('/cash_out', Billing::class)->name('billing');
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/tables', Tables::class)->name('tables');
     Route::get('/user-profile', UserProfile::class)->name('user-profile');
     Route::get('/upload_video', UserManagement::class)->name('user-management');
+    Livewire::component('request-withdrawal', \App\Http\Livewire\RequestWithdrawal::class);
 });
 
 //for wrong route

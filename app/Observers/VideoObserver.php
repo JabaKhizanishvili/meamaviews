@@ -23,9 +23,9 @@ class VideoObserver
         $video->earned_amount = ($video->views / 1000) * 5;
         $video->saveQuietly();
 
-        $user = $video->user;
-        $user->balance = $user->videos()->sum('earned_amount');
-        $user->saveQuietly();
+//        $user = $video->user;
+//        $user->balance = $user->videos()->sum('earned_amount');
+//        $user->saveQuietly();
     }
 
     /**

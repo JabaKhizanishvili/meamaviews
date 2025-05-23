@@ -96,10 +96,23 @@ class User extends Authenticatable
         return $this->hasMany(Video::class,'user_id');
     }
 
+    public function withdrawals()
+    {
+        return $this->hasMany(Withdrawal::class);
+    }
+
 
     public function getTotalViewsAttribute()
     {
         return $this->videos()->sum('views');
+    }
+
+    public function getAvailableBalanceAttribute()
+    {
+        $earned = $this->videos()->sum('earned_amount');
+        $withdrawn = $this->withdrawals()->where('status', 'approved')->sum('amount');
+
+        return $earned - $withdrawn;
     }
 
 }
