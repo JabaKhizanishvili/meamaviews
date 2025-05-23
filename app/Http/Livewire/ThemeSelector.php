@@ -218,6 +218,9 @@ class ThemeSelector extends Component
         $video->delete();
         $this->video = Video::where('status', 1)->get();
         $this->loadTakenThemes();
+        $this->video = Video::where('status',1)
+            ->where('user_id',auth()->id())
+            ->get();
         session()->flash('message', 'ვიდეო წარმატებით წაიშალა!');
     }
 }
