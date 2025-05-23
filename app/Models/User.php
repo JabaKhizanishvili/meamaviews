@@ -96,4 +96,10 @@ class User extends Authenticatable
         return $this->hasMany(Video::class,'user_id');
     }
 
+
+    public function getTotalViewsAttribute()
+    {
+        return $this->videos()->sum('views');
+    }
+
 }

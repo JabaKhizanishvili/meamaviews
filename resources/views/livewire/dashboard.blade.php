@@ -7,10 +7,10 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Money</p>
+                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">ბალანსი</p>
                                     <h5 class="font-weight-bolder mb-0">
-                                        $53,000
-                                        <span class="text-success text-sm font-weight-bolder">+55%</span>
+                                        {{$user->balance}} ₾
+{{--                                        <span class="text-success text-sm font-weight-bolder">+55%</span>--}}
                                     </h5>
                                 </div>
                             </div>
@@ -29,10 +29,10 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Users</p>
+                                    <p class="text-sm mb-0 text-capitalize font-weight-bold">ჯამური ნახვები</p>
                                     <h5 class="font-weight-bolder mb-0">
-                                        2,300
-                                        <span class="text-success text-sm font-weight-bolder">+3%</span>
+                                        {{$user->getTotalViewsAttribute()}}
+{{--                                        <span class="text-success text-sm font-weight-bolder">+3%</span>--}}
                                     </h5>
                                 </div>
                             </div>
