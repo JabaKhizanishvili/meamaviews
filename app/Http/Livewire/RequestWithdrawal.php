@@ -18,7 +18,7 @@ class RequestWithdrawal extends Component
     {
         $today = now();
         $endOfMonth = $today->copy()->endOfMonth();
-        $startAllowedDay = $endOfMonth->copy()->subDays(4);
+        $startAllowedDay = $endOfMonth->copy()->subDays(5);
 
         if ($today->lt($startAllowedDay)) {
             $this->dispatch('notify', type: 'error', message: 'გატანა შესაძლებელია მხოლოდ თვის ბოლო 5 დღეს.');
