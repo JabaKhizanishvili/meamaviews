@@ -36,5 +36,6 @@ body{
   font-weight: 400 !important; /* ნორმალური წონა */
   font-style: normal;
   font-optical-sizing: auto;
+  
 }
 </style>
